@@ -1,50 +1,47 @@
-# React + TypeScript + Vite
+# QR-Code Passwort Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Eine einfache Web-App, die sichere Passwörter generiert und QR-Codes für diese Passwörter erstellt. Die App ist mittig ausgerichtet, responsiv und enthält eine kleine Animation. Der QR-Code wird nach einmaligem Nutzen gelöscht, und der Cache wird geleert, um sicherzustellen, dass das Passwort nicht mehr herausgefunden werden kann.
 
-Currently, two official plugins are available:
+## Funktionen
+- Generiert sichere Passwörter mit einer Länge von 16 Zeichen
+- Erstellt QR-Codes für die generierten Passwörter
+- Löscht den QR-Code und leert den Cache nach einmaligem Nutzen
+- Mittiges und responsives Design mit einer kleinen Animation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+1. Klonen Sie das Repository:
+    ```sh
+    git clone https://github.com/IhrBenutzername/qr-code.git
+    ```
+2. Navigieren Sie in das Projektverzeichnis:
+    ```sh
+    cd qr-code
+    ```
+3. Installieren Sie die Abhängigkeiten:
+    ```sh
+    npm install
+    ```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Nutzung
 
-- Configure the top-level `parserOptions` property like this:
+1. Starten Sie den Entwicklungsserver:
+    ```sh
+    npm start
+    ```
+    npm run dev
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Technologien
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- React
+- TypeScript
+- Vite
+- `react-qrcode-logo` für die QR-Code-Generierung
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Mitwirken
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Beiträge sind willkommen! Wenn Sie Fehler finden oder neue Funktionen vorschlagen möchten, öffnen Sie bitte ein Issue oder senden Sie einen Pull-Request.
+
+## Lizenz
+
+Dieses Projekt ist unter der MIT-Lizenz lizenziert. Weitere Informationen finden Sie in der LICENSE-Datei.
