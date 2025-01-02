@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
-
 import './App.css';
 import QRCodeDisplay from './components/QrPdf';
 import jsPDF from 'jspdf';
