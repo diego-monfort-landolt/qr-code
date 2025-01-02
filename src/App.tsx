@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { QRCode } from 'react-qrcode-logo';
+
+
 import './App.css';
+import QRCodeDisplay from './components/QrPdf';
+import jsPDF from 'jspdf';
 
 const App: React.FC = () => {
   const [password, setPassword] = useState('');
@@ -48,6 +51,40 @@ const App: React.FC = () => {
     setStarted(false);
   };
 
+  const displayQRCodeInBrowser = () => {
+    const doc = new jsPDF();
+    const qrElement = document.querySelector('canvas');
+    if (qrElement) {
+      const qrDataUrl = qrElement.toDataURL('image/png');
+      doc.addImage(qrDataUrl, 'PNG', 10, 10, 180, 180);
+    }
+    const pdfWindow = window.open(doc.output('bloburl'), '_blank');
+    if (pdfWindow) {
+      pdfWindow.document.write(`
+        <style>
+          body {
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+          }
+          button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+          }
+        </style>
+        <button onclick="window.close()">Zurück</button>
+        <embed src="${doc.output('datauristring')}" type="application/pdf" width="100%" height="100%">
+      `);
+    }
+  };
+
   return (
     <div className="container">
       <h1>QR-Code Passwort Generator</h1>
@@ -55,14 +92,8 @@ const App: React.FC = () => {
         <button onClick={() => setStarted(true)} className="start-button">Start</button>
       ) : (
         <>
-          <button onClick={generatePassword} className="generate-button">Passwort generieren</button>
-          {password && (
-            <div className="password-container">
-              <p className="password">{password}</p>
-              <QRCode value={qrValue} size={256} />
-              <button onClick={clearQRCode} className="clear-button">QR-Code löschen</button>
-            </div>
-          )}
+          <QRCodeDisplay password={password} qrValue={qrValue} clearQRCode={clearQRCode} generatePassword={generatePassword} />
+          <button onClick={displayQRCodeInBrowser} className="display-button">QR-Code als PDF anzeigen</button>
         </>
       )}
     </div>
