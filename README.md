@@ -2,6 +2,8 @@
 
 Eine einfache Web-App, die sichere Passwörter generiert und QR-Codes für diese Passwörter erstellt. Die App ist mittig ausgerichtet, responsiv und enthält eine kleine Animation. Der QR-Code wird nach einmaligem Nutzen gelöscht, und der Cache wird geleert, um sicherzustellen, dass das Passwort nicht mehr herausgefunden werden kann.
 
+https://diego-monfort-landolt.github.io/qr-code
+
 ## Funktionen
 - Generiert sichere Passwörter mit einer Länge von 16 Zeichen
 - Erstellt QR-Codes für die generierten Passwörter
@@ -41,6 +43,8 @@ Eine einfache Web-App, die sichere Passwörter generiert und QR-Codes für diese
 ## Mitwirken
 
 Beiträge sind willkommen! Wenn Sie Fehler finden oder neue Funktionen vorschlagen möchten, öffnen Sie bitte ein Issue oder senden Sie einen Pull-Request.
+
+![alt text](image.png)
 
 ## Lizenz
 
