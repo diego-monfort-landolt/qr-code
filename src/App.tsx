@@ -3,6 +3,7 @@ import './App.css';
 import QRCodeDisplay from './components/QrPdf';
 import jsPDF from 'jspdf';
 
+
 const App: React.FC = () => {
   const [password, setPassword] = useState('');
   const [qrValue, setQrValue] = useState('');
@@ -84,9 +85,9 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="container">
-  
-  
+    <>
+    
+      <div className="container">
       <h1>QR-Code Passwort Generator</h1>
       {!started ? (
         <button onClick={() => setStarted(true)} className="start-button">Start</button>
@@ -97,7 +98,8 @@ const App: React.FC = () => {
         </>
       )}
     </div>
+    </>
+  
   );
 };
-
 export default App;
