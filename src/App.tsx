@@ -85,6 +85,8 @@ const App: React.FC = () => {
 
   return (
     <div className="container">
+  
+  
       <h1>QR-Code Passwort Generator</h1>
       {!started ? (
         <button onClick={() => setStarted(true)} className="start-button">Start</button>
